@@ -8,6 +8,7 @@ public class Main {
 	
 	System.out.println(GameObject.getNumber());
 	System.out.println(Animal.getNumber());
+	// 使用
     }
 
 }
