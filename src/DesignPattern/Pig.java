@@ -1,7 +1,7 @@
 package DesignPattern;
 
-public class Pig extends Animal{
-    public static Pig instance;
+public final class Pig extends Animal{
+    public static Pig instance = new Pig();
     @Override
     public GameObject clone() {
 	return new Pig();
@@ -13,5 +13,9 @@ public class Pig extends Animal{
     
     private Pig(){
 	super.addPrototype(this);
+    }
+    
+    public static Pig Clone(){
+	return new Pig();
     }
 }
