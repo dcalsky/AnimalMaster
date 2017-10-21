@@ -2,7 +2,7 @@ AnimalMaster
 =======
 Custom Framework project for design pattern course.
 
-#Update log
+# Update log
 ***************
 - Prototype for single root class GameObject and its subclasses  --GPY
 - Singleton for farm class,  Plant and Equipment class implementations, ready for improvement --LSL
