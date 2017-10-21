@@ -10,11 +10,11 @@ public abstract class GameObject {
     protected abstract GameObject clone();
     
     public static GameObject findAndClone(String type){
-	for(GameObject go : gameObjects){
-	    if(go.getClass().getName().equals(type))
-		return go.clone();
-	}
-	return null;
+		for(GameObject go : gameObjects){
+			if(go.getClass().getName().equals(type))
+			return go.clone();
+		}
+		return null;
     }
     
     protected void addPrototype(GameObject gameObject){
@@ -26,11 +26,11 @@ public abstract class GameObject {
     }
     
     public static int getNumber(){
-	Set<String> set = new HashSet<>();
-	for(GameObject go : gameObjects){
-	    set.add(go.getClass().getName());
-	}
-	return gameObjects.size() - set.size();
+		Set<String> set = new HashSet<>();
+		for(GameObject go : gameObjects){
+			set.add(go.getClass().getName());
+		}
+		return gameObjects.size() - set.size();
     }
     
 }

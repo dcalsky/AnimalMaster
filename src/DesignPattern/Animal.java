@@ -11,16 +11,16 @@ public abstract class Animal extends GameObject{
     protected Animal() { }
 
     protected void addPrototype (Animal animal) {
-	super.addPrototype(animal);
-	animals.add(animal);
+		super.addPrototype(animal);
+		animals.add(animal);
     }
     //所有非final类都需要重载addPrototype方法，实现方法是super.addPrototype(参数);list.add(参数);
     
     public static int getNumber(){
-	Set<String> set = new HashSet<>();
-	for(Animal go : animals){
-	    set.add(go.getClass().getName());
-	}
+		Set<String> set = new HashSet<>();
+		for(Animal go : animals){
+			set.add(go.getClass().getName());
+		}
 	return animals.size() - set.size();
     }
     //所有非final类需要实现public static的getNumber

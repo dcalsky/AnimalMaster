@@ -2,6 +2,7 @@ package DesignPattern;
 
 public final class Pig extends Animal{
     public static Pig instance = new Pig();
+
     @Override
     public GameObject clone() {
 	return new Pig();
