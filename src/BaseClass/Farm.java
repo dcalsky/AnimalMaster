@@ -1,7 +1,11 @@
 package BaseClass;
 
+import Extend.ClassUtil;
+import Root.GameObject;
+
 import java.awt.*;
 import java.sql.Struct;
+import java.util.List;
 
 /**
  * 农场类，用到设计模式singleton
@@ -48,6 +52,18 @@ public class Farm
 				break;
 			default:
 				maximum = 0;
+		}
+	}
+
+	//初始化农场对象
+	public void initialize()
+	{
+		//获取单根的所有子类
+		List<Class> packageClass = ClassUtil.getSonClass(GameObject.class);
+		for(Class item : packageClass)
+		{
+			//随便调用一下这个类，使之初始化目的是添加到单根GameObject的prototype中
+			item.getName();
 		}
 	}
 

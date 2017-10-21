@@ -2,8 +2,12 @@ package ForTest;
 
 import BaseClass.Animal;
 import BaseClass.Equipment;
+import BaseClass.Farm;
+import Extend.ClassUtil;
 import Extend.LifeCycle;
 import Root.GameObject;
+
+import java.util.List;
 
 
 /*
@@ -13,16 +17,21 @@ import Root.GameObject;
 public class Main {
 
     public static void main(String[] args) {
-		//Pig pig1 = Pig.Clone();
-		Pig pig2 = Pig.Clone();
-		Pig pig = (Pig) GameObject.findAndClone("ForTest.Pig");
+
+	    Farm myFarm = Farm.getInstance();
+	    /* 农场对象初始化，初始化后findAndClone可以直接使用 */
+	    myFarm.initialize();
+
+		Pig pig = (Pig) GameObject.findAndClone(Pig.class);
 		System.out.println(pig.getClass().getSuperclass());
 
-		Rice rice = Rice.Clone();
-		Rice rice1 = (Rice)GameObject.findAndClone("ForTest.Rice");
+
+
+		//Rice rice = Rice.Clone();
+		Rice rice1 = (Rice)GameObject.findAndClone(Rice.class);
 		rice1.setLifePeriod(LifeCycle.BUD);
 		rice1.printLifePeriod();
-		rice.printLifePeriod();
+
 
 		// 使用
 
@@ -33,6 +42,8 @@ public class Main {
 	    System.out.println("animal: " + Animal.getNumber());
 	    System.out.println("equip: " + Equipment.getNumber());
 	    System.out.println("sty: " + Sty.getNumber());
+
+
     }
 
 }

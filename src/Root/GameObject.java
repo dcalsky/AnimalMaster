@@ -11,10 +11,11 @@ public abstract class GameObject {
     
     protected abstract GameObject clone();
     
-    public static GameObject findAndClone(String type){
-		for(GameObject go : gameObjects){
-			System.out.print("item: ");
-			System.out.println(go.getClass().getName());
+    public static GameObject findAndClone(Class toBeClone)
+    {
+    	String type = toBeClone.getName();
+		for(GameObject go : gameObjects)
+		{
 		    if(go.getClass().getName().equals(type))
 			return go.clone();
 		}
