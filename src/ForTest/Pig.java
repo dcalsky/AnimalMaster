@@ -7,16 +7,18 @@ public final class Pig extends Animal
 {
     public static Pig instance = new Pig();
     @Override
-    public GameObject clone() {
-	return new Pig();
+    public GameObject clone()
+    {
+		return new Pig();
     }
     
     public void destroy(){
 	super.destroy(this);
     }
     
-    private Pig(){
-	super.addPrototype(this);
+    private Pig()
+    {
+    	super.addPrototype(this);
     }
     
     public static Pig Clone()
@@ -24,3 +26,4 @@ public final class Pig extends Animal
 		return new Pig();
     }
 }
+

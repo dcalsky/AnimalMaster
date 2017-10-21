@@ -20,13 +20,16 @@ public abstract class Equipment extends GameObject
 
 	protected Equipment() { }
 
-	protected void addPrototype (Equipment equip) {
+	protected void addPrototype(Equipment equip) {
 		super.addPrototype(equip);
 		equips.add(equip);
+
 	}
 	//所有非final类都需要重载addPrototype方法，实现方法是super.addPrototype(参数);list.add(参数);
 
-	public static int getNumber(){
+	public static int getNumber()
+	{
+		//用set把原型prototype去掉，统计的是实际产生的object
 		Set<String> set = new HashSet<>();
 		for(Equipment go : equips){
 			set.add(go.getClass().getName());
@@ -38,6 +41,9 @@ public abstract class Equipment extends GameObject
 	protected void destroy(Equipment equip){
 		super.destroy(equip);
 		equips.remove(equip);
+
 	}
 	//所有继承类需要重载destroy
+
+
 }
