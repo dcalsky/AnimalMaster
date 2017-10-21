@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef3f5f8b-e710-488e-9070-a0208a536b65" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/BaseClass/Plant.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Extend/LifeCycle.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ForTest/Rice.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ForTest/Sty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/designPattern/BaseClass/Animal.class" afterPath="$PROJECT_DIR$/out/production/designPattern/BaseClass/Animal.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/designPattern/BaseClass/Equipment.class" afterPath="$PROJECT_DIR$/out/production/designPattern/BaseClass/Equipment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/designPattern/BaseClass/Farm.class" afterPath="$PROJECT_DIR$/out/production/designPattern/BaseClass/Farm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/designPattern/ForTest/Main.class" afterPath="$PROJECT_DIR$/out/production/designPattern/ForTest/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/designPattern/ForTest/Pig.class" afterPath="$PROJECT_DIR$/out/production/designPattern/ForTest/Pig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/designPattern/Root/GameObject.class" afterPath="$PROJECT_DIR$/out/production/designPattern/Root/GameObject.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseClass/Animal.java" afterPath="$PROJECT_DIR$/src/BaseClass/Animal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BaseClass/Equipment.java" afterPath="$PROJECT_DIR$/src/BaseClass/Equipment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ForTest/Main.java" afterPath="$PROJECT_DIR$/src/ForTest/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ForTest/Pig.java" afterPath="$PROJECT_DIR$/src/ForTest/Pig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Root/GameObject.java" afterPath="$PROJECT_DIR$/src/Root/GameObject.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Plant.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Plant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BaseClass/Plant.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="441">
@@ -49,6 +35,19 @@
                 <element signature="e#525#526#0" expanded="true" />
                 <element signature="e#560#561#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="168">
+                <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -156,18 +155,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Farm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BaseClass/Farm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -213,6 +200,7 @@
         <option value="$PROJECT_DIR$/src/ForTest/Rice.java" />
         <option value="$PROJECT_DIR$/src/BaseClass/Plant.java" />
         <option value="$PROJECT_DIR$/src/ForTest/Main.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -253,35 +241,6 @@
             <path>
               <item name="designPattern" type="b2602c69:ProjectViewProjectNode" />
               <item name="designPattern" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="designPattern" type="b2602c69:ProjectViewProjectNode" />
-              <item name="designPattern" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="designPattern" type="b2602c69:ProjectViewProjectNode" />
-              <item name="designPattern" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BaseClass" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="designPattern" type="b2602c69:ProjectViewProjectNode" />
-              <item name="designPattern" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Extend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="designPattern" type="b2602c69:ProjectViewProjectNode" />
-              <item name="designPattern" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ForTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="designPattern" type="b2602c69:ProjectViewProjectNode" />
-              <item name="designPattern" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Root" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -423,12 +382,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1508416506800</updated>
-      <workItem from="1508416508074" duration="27749000" />
+      <workItem from="1508416508074" duration="28125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27749000" />
+    <option name="totallyTimeSpent" value="28125000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-214" y="-1057" width="1920" height="1053" extended-state="6" />
@@ -624,6 +583,17 @@
             <element signature="e#525#526#0" expanded="true" />
             <element signature="e#560#561#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="168">
+            <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
