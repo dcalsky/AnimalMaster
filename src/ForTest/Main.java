@@ -1,5 +1,6 @@
 package ForTest;
 
+import ActionBase.Action;
 import BaseClass.Animal;
 import BaseClass.Equipment;
 import BaseClass.Farm;
@@ -13,6 +14,8 @@ import Root.GameObject;
 
 public class Main {
 
+    static Walk walk = new Walk("walk");
+    static Jump jump = new Jump("jump");
     public static void main(String[] args) {
 
 	    Farm myFarm = Farm.getInstance();
@@ -40,6 +43,18 @@ public class Main {
 	    System.out.println("equip: " + Equipment.getNumber());
 	    System.out.println("sty: " + Sty.getNumber());
 
+            ////////////////////////////////////////////////////////////////////
+            
+            Action animalWalk = Action.findAndClone("ForTest.Walk");
+            Action animalJump = Action.findAndClone("ForTest.Jump");
+            Action.showContent();
+            
+            pig.setAction(animalJump);
+            pig.setAction(animalWalk);
+            rice1.setAction(animalWalk);
+            
+            //pig.deleteAction(animalJump);
+            rice1.deleteAction(animalJump);
 
     }
 
