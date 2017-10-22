@@ -1,5 +1,6 @@
 package BaseClass;
 
+import ActionBase.Action;
 import Root.GameObject;
 
 import java.util.ArrayList;
@@ -39,5 +40,13 @@ public abstract class Animal extends GameObject
     }
     //所有继承类需要重载destroy
     
+     public void setAction(Action action){
+        //System.out.println(action.getClass().getName()+" "+this.getClass().getName());
+        action.attach(action, this);
+    }
+     
+     public void deleteAction(Action action){
+         action.dettach(action,this);
+     }
 
 }

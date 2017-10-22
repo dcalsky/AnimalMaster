@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public abstract class GameObject {
+public abstract class GameObject{
 	//
     protected static List<GameObject> gameObjects = new ArrayList<>();
     
