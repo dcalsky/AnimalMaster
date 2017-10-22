@@ -6,8 +6,9 @@
 package ActionBase;
 
 import Root.GameObject;
-import java.util.HashMap;
-import java.util.Vector;
+
+import java.util.*;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -16,9 +17,20 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * @author 18359
  */
 
-public abstract class Action {
-    protected static HashMap<Action, Vector<GameObject> >  _action = new HashMap<>();
+public abstract class Action extends GameObject{
+    protected List<GameObject> observers = new ArrayList<>();
+    private static List<Action> objs = new ArrayList<>();
     protected String actionName;
+
+    public String getActionName() {
+        return actionName;
+    }
+
+    public void setActionName(String actionName) {
+        this.actionName = actionName;
+    }
+
+
     //Vector是一个Observer pool,每一个setAction的动物类会添加到Action对应的Vector当中，Action及其子类使用Prototype设计模式
     //////////////////////////////////////////////////////////////////////////////////////////////
     //重载hashcode()与equals()
@@ -34,21 +46,14 @@ public abstract class Action {
     
     /////////////////////////////////////////////////////////////////////////////////////////////
     //Prototype Design pattern
-    protected static void addPrototype(Action action){ _action.put(action, new Vector()); }
     protected abstract Action clone();
     protected abstract void act();
-    
-    public static Action findAndClone(String type){
-        for(Action action : _action.keySet()){
-            //System.out.println(action.getClass().getName()+" "+_action.keySet().size());
-            if(action.getClass().getName().equals(type)){
-                return action.clone();
-            }
-        }
-        System.out.println(type+" not found");
-        return null;
+
+    protected void addPrototype (Action action) {
+        super.addPrototype(action);
+        objs.add(action);
     }
-    
+
     public static void showContent(){
         for(Action action: _action.keySet()){
             //System.out.println(action.getClass().getName());
@@ -60,39 +65,31 @@ public abstract class Action {
     //Observer Design pattern
     
     //向Map中对应的action注册Observer
-    public void attach(Action action, GameObject go){
-            if(_action.containsKey(action)){
-                _action.get(action).add(go);
-                Vector<GameObject> v = _action.get(action);
-                for(GameObject gob: v){
-                    //System.out.println(gob.getClass().getName()+" "+action.getClass().getName());
-                }
-            }else{
-                System.out.println("not exist");
-            }
-            //action1.act();
+    public void attach( GameObject go){
+        if(! observers.contains(go)){
+            observers.add(go);
+        }
     }
 
     public void dettach(Action action, GameObject go){
-        if(_action.containsKey(action)){
-            if(!_action.get(action).contains(go)){
-                System.out.println(go.getClass().getName()+" does not have action "+action.getClass().getName());
-            }
-            _action.get(action).remove(go);
-            Vector<GameObject> v = _action.get(action);
-                
-            for(GameObject gob: v){
-                //System.out.println(gob.getClass().getName()+" "+action.getClass().getName());
-            }
-        }else{
-            System.out.println("not exist the action");
+        observers.remove(go);
+    }
+
+    public static int getNumber()
+    {
+        Set<String> set = new HashSet<>();
+        for(Action go : objs)
+        {
+            set.add(go.getClass().getName());
         }
-        for(Action action1 : _action.keySet()){
-            System.out.println(action1.getClass().getName());
-            for(GameObject v:_action.get(action1)){
-                System.out.println(v.getClass().getName());
-            }
-        }
+        System.out.println("objs: " + objs.size());
+        System.out.println("set: " + set.size());
+        return objs.size() - set.size();
+    }
+
+    protected void destroy(Action animal){
+        super.destroy(animal);
+        objs.remove(animal);
     }
     
 }
