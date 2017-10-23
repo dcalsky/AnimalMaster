@@ -16,6 +16,7 @@ cmake-build-debug/
 
 # IntelliJ
 out/
+target
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -103,4 +104,6 @@ $RECYCLE.BIN/
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-out/
+src/main/resources/
+src/test/
+target/generated-sources/
