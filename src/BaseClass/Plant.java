@@ -3,6 +3,7 @@ package BaseClass;
 import ActionBase.Action;
 import Extend.LifeCycle;
 import Root.GameObject;
+import farmobjects.LivingObjects;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,7 +14,7 @@ import java.util.Set;
  * Created by LSL on 2017/10/20
  */
 
-public abstract class Plant extends GameObject
+public abstract class Plant extends LivingObjects
 {
 	private static List<Plant> plants = new ArrayList<>();
 
