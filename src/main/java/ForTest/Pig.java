@@ -23,9 +23,13 @@ public final class Pig extends Animal
     
     public static Pig Clone()
     {
-		return new Pig();
+	return new Pig();
     }
-    
+     
+    @Override
+    public void update(String actionName){
+        System.out.println("pig "+ actionName);
+    }
     
 }
 

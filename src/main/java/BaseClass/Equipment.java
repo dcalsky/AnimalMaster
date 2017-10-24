@@ -45,6 +45,4 @@ public abstract class Equipment extends InactiveObjects
 
 	}
 	//所有继承类需要重载destroy
-
-
 }
