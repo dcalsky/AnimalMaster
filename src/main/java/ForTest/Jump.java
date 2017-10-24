@@ -6,34 +6,43 @@
 package ForTest;
 
 import ActionBase.Action;
+import Root.GameObject;
 
 /**
  *
  * @author 18359
  */
 public class Jump extends Action {
-
-    public Jump(String jump) {
-        actionName = jump;
-    }
-    ////////////////////////////////////////////////////////////////////////////
-    //Prototype Design pattern
+    
+    public static Jump instance = new Jump();
     @Override
-    public Action clone(){ return new Jump("jump"); }
+    public GameObject clone()
+    {
+	return new Jump("jump");
+    }
     
-    private Jump(){ super.addPrototype(this); }
-    private static Jump _jump = new Jump();
+    public Jump(String actionName){
+        _actionName = actionName;
+    }
     
+    public void destroy(){
+	super.destroy(this);
+    }
+    
+    private Jump()
+    {
+    	super.addPrototype(this);
+    }
+    
+    public static Jump Clone()
+    {
+	return new Jump();
+    }
     ////////////////////////////////////////////////////////////////////////////
     //Observer Design Pattern
     
+    
     ////////////////////////////////////////////////////////////////////////////
-    //每个动作类特有动作
+    //每个动作类特有方法
     
-    protected String actionName = "jump";
-    
-    @Override
-    public void act(){
-        System.out.println(actionName);
-    }
 }

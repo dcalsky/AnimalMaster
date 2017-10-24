@@ -14,8 +14,8 @@ import Root.GameObject;
 
 public class Main {
 
-    static Walk walk = new Walk("walk");
-    static Jump jump = new Jump("jump");
+    //static Walk walk = new Walk("walk");
+    //static Jump jump = new Jump("jump");
     public static void main(String[] args) {
 
 	    Farm myFarm = Farm.getInstance();
@@ -31,8 +31,6 @@ public class Main {
 		Rice rice1 = (Rice) GameObject.findAndClone(Rice.class);
 		rice1.setLifePeriod(LifeCycle.BUD);
 		rice1.printLifePeriod();
-
-
 		// 使用
 
 	    //Sty sty1 = Sty.Clone();
@@ -45,17 +43,19 @@ public class Main {
 
             ////////////////////////////////////////////////////////////////////
             
-            Action animalWalk = Action.findAndClone("ForTest.Walk");
-            Action animalJump = Action.findAndClone("ForTest.Jump");
-            Action.showContent();
+            Walk animalWalk = (Walk)GameObject.findAndClone(Walk.class);
+            Jump animalJump = (Jump)GameObject.findAndClone(Jump.class);
             
             pig.setAction(animalJump);
             pig.setAction(animalWalk);
             rice1.setAction(animalWalk);
-            
-            //pig.deleteAction(animalJump);
-            rice1.deleteAction(animalJump);
-
+           //animalJump.showContent();
+           //animalWalk.showContent();
+            //pig.deleteAction(animalWalk);
+            animalWalk.showContent();
+            animalWalk.changesToAction("walk slower");
+            pig.showAllAction();
+            pig.execute(animalWalk);
     }
 
 }
