@@ -49,24 +49,17 @@ public class Main {
             Walk animalWalk = (Walk)GameObject.findAndClone(Walk.class);
             Jump animalJump = (Jump)GameObject.findAndClone(Jump.class);
             
-//            pig.setAction(animalJump);
-//            pig.setAction(animalWalk);
-//            rice1.setAction(animalWalk);
-//            animalJump.showContent();
-//            animalWalk.showContent();
-//            pig.deleteAction(animalWalk);
-//            animalWalk.showContent();
-//            animalWalk.changesToAction("walk slower");
-//            pig.showAllAction();
-//            pig.execute(animalWalk);
+            pig.setAction(animalJump);
+            pig.setAction(animalWalk);
+            rice1.setAction(animalWalk);
+            //animalJump.showContent();
+            //animalWalk.showContent();
+            //pig.deleteAction(animalWalk);
+            animalWalk.showContent();
+            animalWalk.changesToAction("walk slower");
+            pig.showAllAction();
+            pig.execute(animalWalk);
 
-        PlantContainer pt = new PlantContainer(10);
-        PlantContainerIterator anyiterator = pt.iterator(LifeCycle.SEED);
-        FruitFactory fruitFactory = new FruitFactory(Melon.class);
-        pt.createPlantFactory(fruitFactory);
-        pt.addPlant();
-        if(anyiterator.hasNext())
-        System.out.println(anyiterator.next().toString());
 
     }
 
