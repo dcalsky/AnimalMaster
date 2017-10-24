@@ -1,6 +1,7 @@
 package BaseClass;
 
 import Root.GameObject;
+import farmobjects.InactiveObjects;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,7 +14,7 @@ import java.util.Set;
  * Created by LSL on 2017/10/19
  */
 
-public abstract class Equipment extends GameObject
+public abstract class Equipment extends InactiveObjects
 {
 	private static List<Equipment> equips = new ArrayList<>();
 	//每有一个新的类继承GameObject或者任何一个GameObeject的子类，除非这个类是final类型，否则需要为他添加private static的list
