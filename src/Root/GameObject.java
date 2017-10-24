@@ -11,17 +11,6 @@ public abstract class GameObject{
     
     protected abstract GameObject clone();
     
-    public static GameObject findAndClone(Class toBeClone)
-    {
-    	String type = toBeClone.getName();
-		for(GameObject go : gameObjects)
-		{
-		    if(go.getClass().getName().equals(type))
-			return go.clone();
-		}
-		return null;
-    }
-    
     protected void addPrototype(GameObject gameObject)
     {
 		gameObjects.add(gameObject);
@@ -39,6 +28,17 @@ public abstract class GameObject{
 		    set.add(go.getClass().getName());
 		}
 		return gameObjects.size() - set.size();
+    }
+    
+    public static GameObject findAndClone(Class toBeClone)
+    {
+    	String type = toBeClone.getName();
+		for(GameObject go : gameObjects)
+		{
+		    if(go.getClass().getName().equals(type))
+			return go.clone();
+		}
+		return null;
     }
     
 }

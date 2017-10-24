@@ -12,6 +12,8 @@ public class Rice extends Plant
 {
 	private static Rice rice = new Rice();
 
+	protected String PlantName = "rice";
+
 	@Override
 	public GameObject clone()
 	{
@@ -40,6 +42,11 @@ public class Rice extends Plant
 	}
 
 	public void update(){
-		System.out.println("rice get Updated");
+		System.out.println(this.getPlantName()+" get Updated");
+	}
+
+	@Override
+	public String getPlantName() {
+		return PlantName;
 	}
 }

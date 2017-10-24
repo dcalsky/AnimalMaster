@@ -1,11 +1,14 @@
 package ForTest;
 
 import ActionBase.Action;
-import ActionBase.Observer;
 import BaseClass.Animal;
 import BaseClass.Equipment;
 import BaseClass.Farm;
 import Extend.LifeCycle;
+import PlantFactory.PlantContainer;
+import PlantFactory.PlantContainerIterator;
+import PlantFactory.SpringFactory;
+import PlantFactory.SummerFactory;
 import Root.GameObject;
 
 
@@ -13,11 +16,6 @@ import Root.GameObject;
 	这个Package不是框架里应该有的东西，在开发阶段用于简单的测试
  */
 
-class checkInterface{
-    public void getcheck(Observer ob){
-        ob.update();
-    }
-}
 
 public class Main {
 
@@ -49,8 +47,8 @@ public class Main {
 	    System.out.println("animal: " + Animal.getNumber());
 	    System.out.println("equip: " + Equipment.getNumber());
 	    System.out.println("sty: " + Sty.getNumber());
-	    checkInterface ci = new checkInterface();
-	    ci.getcheck(rice1);
+
+
 
             ////////////////////////////////////////////////////////////////////
             
@@ -62,9 +60,24 @@ public class Main {
             pig.setAction(animalJump);
             pig.setAction(animalWalk);
             rice1.setAction(animalWalk);
-            Action.showContent();
+//            Action.showContent();
 //            animalJump.showContent();
 //            animalWalk.showContent();
+
+        PlantContainer pt = new PlantContainer(10);
+        PlantContainerIterator anyiterator = pt.iterator(LifeCycle.ANY);
+        pt.createPlantFactory(new SpringFactory());
+        pt.addPlant(pt.getFruit());
+        pt.addPlant(pt.getVegetable());
+        while (anyiterator.hasNext()){
+            System.out.println(anyiterator.next().toString());
+        }
+        pt.createPlantFactory(new SummerFactory());
+        pt.addPlant(pt.getFruit());
+        pt.addPlant(pt.getVegetable());
+        anyiterator.loopFromBegin();
+
+
 
     }
 

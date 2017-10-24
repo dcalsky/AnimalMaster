@@ -9,8 +9,6 @@ import Root.GameObject;
 
 import java.util.*;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 /**
  *
@@ -31,18 +29,6 @@ public abstract class Action extends GameObject{
     }
 
 
-    //Vector是一个Observer pool,每一个setAction的动物类会添加到Action对应的Vector当中，Action及其子类使用Prototype设计模式
-    //////////////////////////////////////////////////////////////////////////////////////////////
-    //重载hashcode()与equals()
-    @Override
-    public boolean equals(Object o){
-        return EqualsBuilder.reflectionEquals(this,o);
-    }
-    
-    @Override
-    public int hashCode(){
-        return HashCodeBuilder.reflectionHashCode(this);
-    }
     
     /////////////////////////////////////////////////////////////////////////////////////////////
     //Prototype Design pattern

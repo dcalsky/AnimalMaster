@@ -23,6 +23,8 @@ public abstract class Plant extends GameObject implements Observer
 
 	protected LifeCycle lifePeriod;
 
+	protected String PlantName;
+
 	protected void addPrototype(Plant plant)
 	{
 		super.addPrototype(plant);
@@ -61,8 +63,13 @@ public abstract class Plant extends GameObject implements Observer
          action.dettach(action,this);
      }
 
-     public void update(){}
+	public void update(){}
 
+	public String getPlantName() {
+		return PlantName;
+	}
 
-
+	public LifeCycle getLifePeriod(){
+		return lifePeriod;
+	}
 }
