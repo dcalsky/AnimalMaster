@@ -1,20 +1,22 @@
-package PlantFactory.Vegetable;
+package ForTest;
 
 import Extend.LifeCycle;
+import PlantFactory.Fruit.Fruit;
 import Root.GameObject;
 
-public class Potato extends Vegetable {
-    private static Potato potato = new Potato();
+public class Melon extends Fruit {
 
-    protected String PlantName = "Strawberry";
+    private static Melon melon = new Melon();
+
+    protected String PlantName = "Melon";
 
     @Override
     public GameObject clone()
     {
-        return new Potato();
+        return new Melon();
     }
 
-    public Potato(){
+    public Melon(){
         lifePeriod = LifeCycle.SEED;
         super.addPrototype(this);
     }
@@ -30,17 +32,17 @@ public class Potato extends Vegetable {
         super.destroy(this);
     }
 
-    public static Potato Clone()
+    public static Melon Clone()
     {
-        return new Potato();
+        return new Melon();
     }
 
-    public void update(){
+    public void update(String actionName){
         System.out.println(this.getPlantName()+" get Updated");
     }
 
-    @Override
     public String getPlantName() {
         return PlantName;
     }
+
 }

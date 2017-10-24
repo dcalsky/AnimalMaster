@@ -6,6 +6,7 @@ package Extend;
 
 public enum LifeCycle
 {
+	ANY,            //所有
 	SEED,           //种子萌发
 	BUD,            //芽的发育
 	ROOT,           //根的生长

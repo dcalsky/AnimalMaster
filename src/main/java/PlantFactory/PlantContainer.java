@@ -20,8 +20,7 @@ import java.util.List;
 public class PlantContainer{
     private List<Plant> plants;
     private int size;
-    private Fruit fruit;
-    private Vegetable vegetable;
+    private Plant plant;
 
     protected void setSize(int size)
     {
@@ -33,11 +32,11 @@ public class PlantContainer{
         plants = new ArrayList<>();
     }
 
-    public void addPlant(Plant plant){
+    public void addPlant(){
         if(plants.size() == size){
             System.out.println("land is full");
         }else{
-            this.plants.add(plant);
+            plants.add(plant);
         }
     }
 
@@ -46,8 +45,7 @@ public class PlantContainer{
     }
 
     public void createPlantFactory(final PlantFactory pFactory){
-        setFruit(pFactory.createFruit());
-        setVegetable(pFactory.createVegetable());
+        setPlant(pFactory.createPlant());
         plants = new ArrayList<>();
     }
 
@@ -55,19 +53,11 @@ public class PlantContainer{
         return plants;
     }
 
-    public void setFruit(Fruit fruit){
-        this.fruit = fruit;
+    public void setPlant(Plant plant) {
+        this.plant = plant;
     }
 
-    public void setVegetable(Vegetable vegetable){
-        this.vegetable = vegetable;
-    }
-
-    public Fruit getFruit(){
-        return fruit;
-    }
-
-    public Vegetable getVegetable() {
-        return vegetable;
+    public Plant getPlant() {
+        return plant;
     }
 }

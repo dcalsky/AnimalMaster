@@ -35,6 +35,8 @@ public abstract class Plant extends LivingObjects implements Observer
 		this.lifePeriod = lifePeriod;
 	}
 
+	public LifeCycle getLifePeriod(){return this.lifePeriod;}
+
 	public static int getNumber()
 	{
 		//用set把原型prototype去掉，统计的是实际产生的object

@@ -9,11 +9,9 @@ package PlantFactory;
  *
  */
 
-import PlantFactory.Fruit.Fruit;
-import PlantFactory.Vegetable.Vegetable;
+import BaseClass.Plant;
+
 
 public interface PlantFactory {
-    Fruit createFruit();
-
-    Vegetable createVegetable();
+    Plant createPlant();
 }
