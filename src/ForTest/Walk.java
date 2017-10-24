@@ -6,6 +6,7 @@
 package ForTest;
 
 import ActionBase.Action;
+import Root.GameObject;
 
 /**
  *
@@ -13,30 +14,32 @@ import ActionBase.Action;
  */
 public class Walk extends Action {
 
-    public Walk(String walk) {
-       actionName = walk;
-    }
-    ////////////////////////////////////////////////////////////////////////////
-    //Prototype Design pattern
+   public static Walk instance = new Walk();
     @Override
-    public Action clone(){ return new Walk("walk"); }
-    //为了和私有构造函数区(防止调用两次addPrototype)分开添加一个参数，也可以修改为其他有意义的参数(还没想到)
+    public GameObject clone()
+    {
+	return new Walk("Walk");
+    }
     
-    private Walk(){ super.addPrototype(this); }
-    private static Walk _walk = new Walk();
+    public Walk(String actionName){
+        _actionName = actionName;
+    }
     
-    ////////////////////////////////////////////////////////////////////////////
-    //Observer Design Pattern
+    public void destroy(){
+	super.destroy(this);
+    }
     
+    private Walk()
+    {
+    	super.addPrototype(this);
+    }
     
+    public static Walk Clone()
+    {
+	return new Walk();
+    }
     ////////////////////////////////////////////////////////////////////////////
     //每个动作类特有方法
-    protected String actionName = "walk";
-    
-    @Override
-    public void act(){
-        System.out.println(actionName);
-    }
     
 }
 

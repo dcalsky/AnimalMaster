@@ -1,6 +1,7 @@
 package BaseClass;
 
 import ActionBase.Action;
+import ActionBase.Observer;
 import Extend.LifeCycle;
 import Root.GameObject;
 import farmobjects.LivingObjects;
@@ -14,7 +15,7 @@ import java.util.Set;
  * Created by LSL on 2017/10/20
  */
 
-public abstract class Plant extends LivingObjects
+public abstract class Plant extends LivingObjects implements Observer
 {
 	private static List<Plant> plants = new ArrayList<>();
 
@@ -53,11 +54,11 @@ public abstract class Plant extends LivingObjects
         
         public void setAction(Action action){
         //System.out.println(action.getClass().getName()+" "+this.getClass().getName());
-        action.attach(action, this);
+        action.attach(this);
         }
         
         public void deleteAction(Action action){
-         action.dettach(action,this);
+         action.detach(this);
      }
 
 }

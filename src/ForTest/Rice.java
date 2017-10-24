@@ -38,5 +38,10 @@ public class Rice extends Plant
 	{
 		return new Rice();
 	}
+        ////////////////////////////////////////////////////////////////////////
+        @Override
+        public void update(String actionName){
+            System.out.println("rice " + actionName);
+        }
 
 }
