@@ -13,6 +13,9 @@ import QueueReview.FastReviewBuilder;
 import QueueReview.QueueReviewer;
 import QueueReview.ReviewFlow;
 import QueueReview.SlowReviewBuilder;
+import PlantFactory.Fruit.FruitFactory;
+import PlantFactory.PlantContainer;
+import PlantFactory.PlantContainerIterator;
 import Root.GameObject;
 
 
@@ -56,6 +59,8 @@ public class Main {
             
               pig.setAction(animalJump);
               pig.setAction(animalWalk);
+//            pig.setAction(animalJump);
+//            pig.setAction(animalWalk);
 //            rice1.setAction(animalWalk);
 //            animalJump.showContent();
 //            animalWalk.showContent();
@@ -67,10 +72,15 @@ public class Main {
 
         /*PlantContainer pt = new PlantContainer(10);
         //PlantContainerIterator anyiterator = pt.iterator(LifeCycle.ANY);???
+=======
+        PlantContainer pt = new PlantContainer(10);
+        PlantContainerIterator anyiterator = pt.iterator(LifeCycle.ANY);
+>>>>>>> 56a28dfde15acb39cd409edeff4d6a2c9f0141b4
         FruitFactory fruitFactory = new FruitFactory(Melon.class);
         pt.createPlantFactory(fruitFactory);
         pt.addPlant();
         if(anyiterator.hasNext())
+<<<<<<< HEAD
             System.out.println(anyiterator.next().getClass());*/
         
         QueueReviewer reviewer0 = new QueueReviewer(0);
@@ -85,5 +95,6 @@ public class Main {
        ReviewFlow reviewFlow = reviewer.getReviewFlowMethod();
        System.out.println( "The Review Command is:" + reviewFlow.getCommand());
        pig.executeCommand(reviewFlow);
+            System.out.println(anyiterator.next().getClass());
     }
 }
