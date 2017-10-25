@@ -5,6 +5,9 @@ import BaseClass.Animal;
 import BaseClass.Equipment;
 import BaseClass.Farm;
 import Extend.LifeCycle;
+import PlantFactory.Fruit.FruitFactory;
+import PlantFactory.PlantContainer;
+import PlantFactory.PlantContainerIterator;
 import Root.GameObject;
 
 
@@ -46,16 +49,25 @@ public class Main {
             Walk animalWalk = (Walk)GameObject.findAndClone(Walk.class);
             Jump animalJump = (Jump)GameObject.findAndClone(Jump.class);
             
-            pig.setAction(animalJump);
-            pig.setAction(animalWalk);
-            rice1.setAction(animalWalk);
-           //animalJump.showContent();
-           //animalWalk.showContent();
-            //pig.deleteAction(animalWalk);
-            animalWalk.showContent();
-            animalWalk.changesToAction("walk slower");
-            pig.showAllAction();
-            pig.execute(animalWalk);
+//            pig.setAction(animalJump);
+//            pig.setAction(animalWalk);
+//            rice1.setAction(animalWalk);
+//            animalJump.showContent();
+//            animalWalk.showContent();
+//            pig.deleteAction(animalWalk);
+//            animalWalk.showContent();
+//            animalWalk.changesToAction("walk slower");
+//            pig.showAllAction();
+//            pig.execute(animalWalk);
+
+        PlantContainer pt = new PlantContainer(10);
+        PlantContainerIterator anyiterator = pt.iterator(LifeCycle.ANY);
+        FruitFactory fruitFactory = new FruitFactory(Melon.class);
+        pt.createPlantFactory(fruitFactory);
+        pt.addPlant();
+        if(anyiterator.hasNext())
+            System.out.println(anyiterator.next().getClass());
+
     }
 
 }
