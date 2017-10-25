@@ -2,6 +2,7 @@ package BaseClass;
 
 import ActionBase.Action;
 import ActionBase.Observer;
+import QueueReview.ReviewFlow;
 import Root.GameObject;
 import farmobjects.LivingObjects;
 
@@ -71,5 +72,23 @@ public abstract class Animal extends LivingObjects implements Observer
          }
          System.out.println(this.getClass().getName()+" "+action.getActionName());
      }
-
+     ///////////////////////////////////////////////////////////////////////////
+     //响应builder设计模式产生的command
+     
+     public void executeCommand(ReviewFlow command){
+         if(_action.isEmpty()){
+             System.out.println(this.getClass().getName()+" can not do any action");
+             return;
+         }
+         String[] commands = command.getCommand().split("\\s+");
+         for(String singleCommand:commands){
+             for(Action action: _action){
+                if(!action.getActionName().toUpperCase().equals(singleCommand.toUpperCase())){
+                    System.out.println(this.getClass().getName()+" can not "+singleCommand);
+                    return;
+                }
+             }
+         }
+         System.out.println(this.getClass().getName()+" "+command.getCommand());
+     }
 }
