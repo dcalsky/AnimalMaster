@@ -2,7 +2,6 @@ package BaseClass;
 
 import ActionBase.Action;
 import ActionBase.Observer;
-<<<<<<< HEAD
 import QueueReview.ReviewFlow;
 import Root.GameObject;
 import farmobjects.LivingObjects;
