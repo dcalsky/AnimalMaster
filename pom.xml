@@ -15,4 +15,9 @@
             <version>3.6</version>
         </dependency>
     </dependencies>
+    <properties>
+        <file.encoding>UTF-8</file.encoding>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+    </properties>
 </project>
