@@ -11,14 +11,9 @@ import layer.LayerType;
 public abstract class SpecificLand extends Land implements LayerType{
 
 	private static List<SpecificLand> objs = new ArrayList<>();
-	private int size;
     //每有一个新的类继承GameObject或者任何一个GameObeject的子类，除非这个类是final类型，否则需要为他添加private static的list
     
     protected SpecificLand() { }
-    protected void setSize(int size)
-    {
-    	this.size=size;
-    }
     protected void addPrototype (SpecificLand specificLand) {
     	super.addPrototype(specificLand);
     	objs.add(specificLand);

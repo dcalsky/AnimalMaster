@@ -9,9 +9,17 @@ import Root.GameObject;
 import space.SpaceLayer;
 
 public abstract class Land extends SpaceLayer{
-	private static List<Land> objs = new ArrayList<>();
+	private static List<Land> objs = new ArrayList<Land>();
     //每有一个新的类继承GameObject或者任何一个GameObeject的子类，除非这个类是final类型，否则需要为他添加private static的list
-    
+	protected Integer length=-1;
+	protected Integer width=-1;
+	public static final int MATCH_PARENT=-1;
+	protected void setSize(int length,int width)
+	{
+		this.length=length;
+		this.width=width;
+
+	}
     protected Land() { }
     protected void addPrototype (Land land) {
     	super.addPrototype(land);
@@ -21,7 +29,7 @@ public abstract class Land extends SpaceLayer{
     
     public static int getNumber()
     {
-		Set<String> set = new HashSet<>();
+		Set<String> set = new HashSet<String>();
 		for(Land land : objs)
 		{
 	        set.add(land.getClass().getName());
@@ -37,7 +45,23 @@ public abstract class Land extends SpaceLayer{
     	objs.remove(land);
     }
   //所有继承类需要重载destroy
-    
+
+	public Integer getLength()
+	{
+		return length;
+	}
+	public Integer getWidth()
+	{
+		return width;
+	}
+	public void setLength(int length)
+	{
+		this.length=length;
+	}
+	public void setWidth(int width)
+	{
+		this.width=width;
+	}
    
     
 
