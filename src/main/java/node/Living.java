@@ -1,5 +1,7 @@
 package node;
 
+import Group.Group;
+
 import java.util.HashMap;
 
 public class Living extends Node {
@@ -48,8 +50,19 @@ public class Living extends Node {
         return this.tag;
     }
 
+    public void act(){
+        System.out.println("i can do noting");
+    };
+    public void unact(){
+
+    }
+
     public String get_tag() {
         return tag;
     }
+
+
+
+
 
 }
