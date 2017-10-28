@@ -49,8 +49,7 @@ public class ReviewFlow extends Node{
     
     public void notifyObserverReady(String actionName){
         for(Observer ob: observers){
-            System.out.println(ob.getClass());
-            //ob.updateReadyAction(actionName);
+            ob.updateReadyAction(actionName);
         }
     }
     
