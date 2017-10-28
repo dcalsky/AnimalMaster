@@ -12,7 +12,7 @@ public class AnimalState implements LivingState {
 
     @Override
     public void dead() {
-
+        System.out.println(animal.type + " is Dead!");
     }
 
     @Override

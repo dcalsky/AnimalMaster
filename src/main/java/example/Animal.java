@@ -7,7 +7,7 @@ import node.Living;
 
 public class Animal extends Living {
     public int volumn = 0;
-    private AnimalState state = new AnimalState(this);
+    public AnimalState state = new AnimalState(this);
     String type;
 
     public Animal() {}
