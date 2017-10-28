@@ -1,10 +1,12 @@
 package manager;
 import node.Node;
 
+import java.util.ArrayList;
+
 //Template design pattern
-abstract public class manager extends Node{
+abstract public class Manager extends Node{
     private String manager_name = "default name";
-    public manager(String name)
+    public Manager(String name)
     {
         super();
         manager_name = name;
@@ -16,15 +18,21 @@ abstract public class manager extends Node{
         this.sleep();
     }
 
-    private void get_up()
+    public String get_name()
     {
-        System.out.println(""+manager_name+"起床了");
+        return manager_name;
     }
 
+    private void get_up()
+    {
+        System.out.println(""+manager_name+" get up");
+    }
+
+    abstract protected void manage_work(ArrayList<ManagerWorkFlow>s);
     abstract protected void custom_work();
 
     private void sleep()
     {
-        System.out.println(""+manager_name+"睡觉了");
+        System.out.println(""+manager_name+" sleep");
     }
 }
