@@ -4,13 +4,14 @@ import farm.Farm;
 import farm.FarmMemento;
 import node.Living;
 
+
 public class Animal extends Living {
     public int volumn = 0;
     private AnimalState state = new AnimalState(this);
     String type;
 
-    Animal() {}
-    Animal(String n) {
+    public Animal() {}
+    public Animal(String n) {
         type = n;
     }
 
