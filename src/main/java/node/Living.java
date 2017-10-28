@@ -1,12 +1,12 @@
 package node;
 
+import QueueReview.Observer;
+import QueueReview.ReviewFlow;
 import action.Action;
 import state.DefaultLivingState;
 import state.LivingState;
 
 import java.util.HashMap;
-import java.util.Observable;
-import java.util.Observer;
 
 
 /*
@@ -80,5 +80,9 @@ public class Living extends Node {
 
     public void set_state(LivingState s) {
         this.state = s;
+    }
+    
+    public void execute_command(ReviewFlow reviewFlow){
+        System.out.println(reviewFlow.getCommand());
     }
 }
