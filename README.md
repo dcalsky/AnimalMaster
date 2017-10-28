@@ -4,36 +4,90 @@ Custom Framework project for design pattern course.
 
 # Usage
 ## Start your farm life
-In your main function, define a farm object to manage your farm. Farm class is a singleton class, 
-just implement a public static method to create and get the unique farm instance.
+In your main function, define a farm object to manage your farm. 
+Farm class is a singleton class, and you can just implement a public static method to create and get the unique farm instance like this
 
-For avoiding fetch farm instance under multiple thread env, we set the sync lock to insure you can only get farm 
-instance only once.
 ```java
 Farm myFarm = Farm.getInstance();
 ```
+For avoiding fetch farm instance under multiple thread env, we set the sync lock to insure you can only get farm instance only once.
 
-Once you get the singleton farm instance, you can add object(living or unliving things) into it.
+
+Once you get the singleton farm instance, you are supposed to add object(living or unliving things) into it.
 ```java
 myFarm.add(...)
 ```
 
-If you don't add objects into the farm, just initialize them. That means, these objects are not included in your farm.
+What your should pay attention to is, if you don't add your newly created objects into the farm instance, and just initialize them without this binding action, these objects will not included in your farm.
+## Whose farm?
+Now your program creates a farm, but it is a aborted farm because nobody manages it, works for it and care about it!
+So why don't we find our farm a manager? Luckily, we provide you a abstract `Manger` Class to focus on the farm's management, which means that you can inherit it to create owners, cow keepers, sheepherder and so on（but we don't implement them all, because we are framework）. We provide a `Owner` class for every farm's basic need, and you can create your other managers like the same way:
+```java
+public class Owner extends Manager
+{
+    private ArrayList<ManagerWorkFlow> work_flow = new ArrayList<ManagerWorkFlow>();
+
+    public Owner(String name)
+    {
+        super(name);
+    }
+    @Override
+    public void manage_work(ArrayList<ManagerWorkFlow> s)
+    {
+        this.work_flow = s;
+    }
+
+    @Override
+    public void custom_work()
+    {
+        for(ManagerWorkFlow a : work_flow)
+        {
+            a.wrap(this);
+        }
+    }
+}
+```
+Then you can define your owner in your main class or whatever:
+```java
+private Owner jjh = new Owner("jjh");
+```
+### Managers have to work
+Now back to the meaning of manager. Every manager should have his work duty, but how to make them work? Don't worry, we have implemented a work system for you.
+All you need to focus on are there two things:
+
+- ManagerWorkFlow
+- WorkFactory
+
+`WorkFactory` is a singleton class, and it manages all the work behaviors defines by user, while `ManagerWorkFlow` is a class inherited from `Action` class, and it manages a work flow for a special manager.
+So you can let jjh start his work in this way:
+```java
+WorkFactory wf = WorkFactory.get_instance();
+ManagerWorkFlow feed_fish = wf.get_work("feed_fish",jjh);
+ManagerWorkFlow feed_pig = wf.get_work("feed_pig",jjh);
+ArrayList<ManagerWorkFlow>s = new ArrayList<ManagerWorkFlow>(){
+    {
+    add(feed_fish);
+    add(feed_pig);
+    }
+};
+jjh.manage_work(s);
+jjh.work_flow();
+```
 
 ## Create your first animal
-There are two ways to define and initialize your custom animal(object). But, first at all, you should realize that 
-framework has provided your **two base classes**, `Living` and `unliving`. They are factory class, and build in some 
+There are two ways to define and initialize your custom animal(object). But, first of all, you should notice that 
+**our framework** has provided your **two base classes**, `Living` and `unliving`. They are factory classes, and build in some 
 basic methods.
 
-Using `living` class, means that you wanna create a living object(animal). There are also two ways to define 
+Using `living` class means that you want to create a living object(typically, animal). There are also two ways to define 
 your custom animals.
 
 - Inherit Living class
 - Using factory method
 
-Just define your class (Animal), and inherit living class.
+Just define your class (Animal), and inherit Living class.
 ```java
-// Inherit living class
+// Example for inheriting living class
 public class Animal extends Living {
     public int volumn = 0; // Your custom property
     private AnimalState state = new AnimalState(this); // If you wanna define custom state
@@ -56,19 +110,19 @@ Animal pig = new Animal("pigpigpig");
 ```
 
 ---
-If you wanna create a living object by using simple way: 
+If you want to create a living object through a most simple way, you can do this: 
 ```java
 Living some_living_obj = Living.create();
 ```
 
-By the way, `Living::create` method receives a argument which is a special tag of this object.
+By the way, `Living::create` method can receive a argument which is a special tag of this object.
 
 If you do not pass the special tag to this method, framework will dispatch a default tag for your object automatically. Auto tag format is: `living<total_living_count>`.
 
 ## Actions coming
-Each living have their own action. But we don't implement all them to you(Because we are framework >_<)
+Each living objects have their own actions. But we don't implement all of them to you(Because we are framework >_<)
 
-Although there are no build-in action offered to you. But you can define it by yourself in the simplest approach. If we wanna the pig which have been defined above to fly. We must define a fly action, it's can wrap the pig wings.
+Although there is no build-in action offered to you. But you can define it by yourself in the simplest approach. If you want the pig, which has been defined from above, to fly, you must define a fly action, which can wrap the pig's wings.
 
 Implement action interface to define your custom action class:
 ```java
@@ -80,7 +134,7 @@ public class FlyAction implements Action {
 }
 ```
 
-Until to now, pig is ready to fly. Because living instance supports do an action actively:
+Up to now, pig is ready to fly. Because living instance supports doing an action dynamically:
 ```java
 FlyAction fly_action = new FlyAction();
 pig.do_action(fly_action);
@@ -93,42 +147,52 @@ Animal pig1 = new Animal("pig1");
 Animal pig2 = new Animal("pig2");
 ```
 Then we invoke all_do_action static method to make all pigs do fly action. It also means, all instances which are 
-created by `Animal` class, all of them will do this action either.
+created by `Animal` class, all of them will do this action too.
 ```java
 Animal.all_do_action(flyAction);
 ```
 
 All animals will fly in the sky currently.
 
-### Gather a crowd
-A pig and a dog, they are best friend with each other. But they are different instance which created by different class. 
-PigA created by `Pig` class and DogB created by `Dog` class. However, there two classes both inherit `Living` class
-
-There are the simplest way to gather them to a group:
-
-Create a group which only collects instances created by `living` class, and limit it's capacity is **10**
+## Evolution of your animal
+With time going by, your animal may evolute into a new type of animal.
+You can use `Adapter` to make your animal evolute. And what happens after evolute is defined in `AfterEvolution` class
 ```java
-Group<Living> living_group = new Group<>(10);
+//进化
+pig1 = new Adapter(new AfterEvolution("SmartPig"));
+pig1.speak();
 ```
-Now, pigA and dogB are coming.
+
+## Gather a crowd
+A pig and a dog, they are best friend with each other. But they are different instances created by different classes. 
+Think of this situation, PigA created by `Pig` class and DogB created by `Dog` class, and the two classes both inherit `Living` class:
 ```java
 Living pigA = Living.create("pigA");
 Living dogB = Living.create("dogB");
 ```
-Then we add them into this group. pigA and dogB are in our group now.
+
+Here is the simplest way to gather them to a group:
+
+Create a group which only collects instances created by `living` class, and limit it's capacity is **10**
+```java
+Group<Living> living_group = new Group<>(10);
+
+```
+Then we add the dog and the pig into this group. pigA and dogB are in our group now.
 ```java
 living_group.add(pigA);
 living_group.add(dogB);
 ```
 
-This moment, both of them wanna fly suddenly. Just a little case. Invoking allDoAction method of group instance will 
+This moment, both of them wanna fly. Just a little case. Invoking allDoAction method of group instance will 
 solve this issue.
 ```java
 FlyAction flyAction = new FlyAction();
 living_group.allDoAction(flyAction);
 ```
 
-### Record farm state
+
+## Record farm state
 It's a big problem that you wanna record your farm state before rebuilding your farm. 
 Because you think you will feel regretful once rebuilding the farm.
 
@@ -143,7 +207,7 @@ FarmMemento farm_state = new FarmMemento(myFarm);
 myFarm.rebuild(new SmallFarmLevel());
 
 
-// feel regretul? Restore farm state!
+// regret? Restore farm state!
 myFarm.restore(farm_state.get_state());
 ```
 
@@ -191,3 +255,5 @@ git push origin <your_branch_name>
 (apply PR to master branch)
 (wait for check)
 ```
+
+
