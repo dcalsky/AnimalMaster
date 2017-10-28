@@ -16,7 +16,6 @@ public class Living extends Node {
     private static int count = 0;
     private static HashMap<String, Living> tags = new HashMap<String, Living>();
     private String tag;
-    private String LivingType;
     private LivingState state = new DefaultLivingState(this);
 
     protected Living(String tag) {
@@ -36,6 +35,12 @@ public class Living extends Node {
         this.tag = "Living" + Integer.toString(get_count());
         tags.put(this.tag, this);
         Living.count += 1;
+    }
+
+    protected static void all_do_action(Action action) {
+        tags.forEach((tag, living) -> {
+            living.do_action(action);
+        });
     }
 
     public void do_action(Action action) {
