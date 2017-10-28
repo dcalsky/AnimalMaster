@@ -22,7 +22,7 @@ public class ReviewFlow extends Node{
     
     public String getCommand(){ return _queueReadyAction+" "+_queueMoveAction+" "+_queueEndAction; }
     ////////////////////////////////////////////////////////////////////////////
-    private List<Observer> observers = new ArrayList();
+    private static List<Observer> observers = new ArrayList();
      public void attach(Observer ob){
         observers.add(ob);
     }
@@ -49,7 +49,8 @@ public class ReviewFlow extends Node{
     
     public void notifyObserverReady(String actionName){
         for(Observer ob: observers){
-            ob.updateReadyAction(actionName);
+            System.out.println(ob.getClass());
+            //ob.updateReadyAction(actionName);
         }
     }
     

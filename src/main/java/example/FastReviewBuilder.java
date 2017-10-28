@@ -4,6 +4,7 @@
  */
 package Example;
 
+import QueueReview.ReviewFlow;
 import QueueReview.ReviewFlowBuilder;
 import QueueReview.ReviewFlowBuilder;
 
@@ -12,7 +13,7 @@ import QueueReview.ReviewFlowBuilder;
  * @author 18359
  */
 public class FastReviewBuilder extends ReviewFlowBuilder {
-
+    
     @Override
     public void buildReadyAction() {
         reviewMethod.setReadyActionCommand("Standing");
@@ -27,5 +28,12 @@ public class FastReviewBuilder extends ReviewFlowBuilder {
     public void buildEndAction() {
         reviewMethod.setEndActionCommand("Standing");
     }
+
+    @Override
+    public void createReviewFlow(ReviewFlow flow) {
+       flow.attach(this);
+       reviewMethod = new ReviewFlow();
+    }
+    
     
 }

@@ -15,15 +15,19 @@ import node.Node;
  */
 public abstract class ReviewFlowBuilder extends Node implements Observer {
     protected ReviewFlow reviewMethod;
-    
     public ReviewFlow getReviewMethod(){ return reviewMethod; }
     
-    public void createReviewFlow() { reviewMethod = new ReviewFlow(); }
+    public abstract void createReviewFlow(ReviewFlow flow);
     public abstract void buildReadyAction();
     public abstract void buildMoveAction();
     public abstract void buildEndAction();
     
+    public void setSubject(ReviewFlow flow){
+        flow.attach(this);
+    }
+    
     public void updateReadyAction(String actionName){
+        System.out.println(actionName);
         reviewMethod.setReadyActionCommand(actionName);
     }
     public void updateMoveAction(String actionName){
