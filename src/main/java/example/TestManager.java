@@ -13,7 +13,7 @@ public class TestManager  {
 
         WorkFactory wf = WorkFactory.get_instance();
         ManagerWorkFlow feed_fish = wf.get_work("feed_dog",jjh);
-        ManagerWorkFlow feed_pig = wf.get_work("feed_pig",jjh);
+        ManagerWorkFlow feed_pig = wf.get_work("feed_duck",jjh);
         ArrayList<ManagerWorkFlow>s = new ArrayList<ManagerWorkFlow>(){
             {
             add(feed_fish);
