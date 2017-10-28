@@ -1,13 +1,12 @@
 package node;
 
+import QueueReview.Observer;
 import QueueReview.ReviewFlow;
 import action.Action;
 import state.DefaultLivingState;
 import state.LivingState;
 
 import java.util.HashMap;
-import java.util.Observable;
-import java.util.Observer;
 
 
 /*

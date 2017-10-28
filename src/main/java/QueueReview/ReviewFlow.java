@@ -5,7 +5,8 @@
  */
 package QueueReview;
 
-import action.Action;
+import java.util.ArrayList;
+import java.util.List;
 import node.Node;
 
 public class ReviewFlow extends Node{
@@ -21,4 +22,46 @@ public class ReviewFlow extends Node{
     
     public String getCommand(){ return _queueReadyAction+" "+_queueMoveAction+" "+_queueEndAction; }
     ////////////////////////////////////////////////////////////////////////////
+    private List<Observer> observers = new ArrayList();
+     public void attach(Observer ob){
+        observers.add(ob);
+    }
+
+    public void detach(Observer ob){
+        observers.remove(ob);
+    }
+    
+    //用户可以对动作进行微调，比如说walk变成walk slower
+    public void changeAllReadyAction(String actionName){
+        setReadyActionCommand(actionName);
+        notifyObserverReady(actionName);
+    }
+    
+    public void changeAllMoveAction(String actionName){
+        setReadyActionCommand(actionName);
+        notifyObserverMove(actionName);
+    }
+    
+    public void changeAllEndAction(String actionName){
+        setEndActionCommand(actionName);
+        notifyObserverEnd(actionName);
+    }
+    
+    public void notifyObserverReady(String actionName){
+        for(Observer ob: observers){
+            ob.updateReadyAction(actionName);
+        }
+    }
+    
+    public void notifyObserverMove(String actionName){
+        for(Observer ob: observers){
+            ob.updateMoveAction(actionName);
+        }
+    }
+    
+    public void notifyObserverEnd(String actionName){
+        for(Observer ob: observers){
+            ob.updateEndAction(actionName);
+        }
+    }
 }

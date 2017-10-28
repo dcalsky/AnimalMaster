@@ -14,7 +14,7 @@ import QueueReview.ReviewFlowBuilder;
 public class SlowReviewBuilder extends ReviewFlowBuilder {
 
     @Override
-    public void buildReacyAction() {
+    public void buildReadyAction() {
         reviewMethod.setReadyActionCommand("Squat");
     }
 

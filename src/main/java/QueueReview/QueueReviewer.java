@@ -24,13 +24,13 @@ public class QueueReviewer extends FarmManager{
      public void setReviewFlowBuilder(ReviewFlowBuilder pd){ reviewFlowBuilder = pd; }
      public void constructReviewFlow(){
          reviewFlowBuilder.createReviewFlow();
-         reviewFlowBuilder.buildReacyAction();
+         reviewFlowBuilder.buildReadyAction();
          reviewFlowBuilder.buildMoveAction();
          reviewFlowBuilder.buildEndAction();
      }
      
      public static void main(String args[]){
-        QueueReviewer reviewer = new QueueReviewer();
+       QueueReviewer reviewer = new QueueReviewer();
        FastReviewBuilder fastReviewBuilder = new FastReviewBuilder();
        SlowReviewBuilder slowReviewBuilder = new SlowReviewBuilder();
        
@@ -40,6 +40,9 @@ public class QueueReviewer extends FarmManager{
        System.out.println( "The Review Command is: " + reviewFlow.getCommand());
        
        Animal pig = new Animal("pig1"); 
+       pig.execute_command(reviewFlow);
+       
+       reviewFlow.changeAllReadyAction("fly");
        pig.execute_command(reviewFlow);
     }
 }

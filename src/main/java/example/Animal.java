@@ -10,7 +10,7 @@ public class Animal extends Living {
     String type;
 
     Animal() {}
-    Animal(String n) {
+    public Animal(String n) {
         type = n;
     }
 
