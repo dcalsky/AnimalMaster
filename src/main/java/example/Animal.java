@@ -8,6 +8,7 @@ public class Animal extends Living {
     private AnimalState state = new AnimalState(this);
     String type;
 
+    Animal() {}
     Animal(String n) {
         type = n;
     }
@@ -29,5 +30,9 @@ public class Animal extends Living {
         pig.eat();
         FlyAction flyAction = new FlyAction();
         pig.do_action(flyAction);
+
+        //进化
+        pig = new Adapter(new AfterEvolution("SmartPig"));
+        pig.speak();
     }
 }
