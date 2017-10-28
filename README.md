@@ -162,6 +162,52 @@ You can use `Adapter` to make your animal evolute. And what happens after evolut
 pig1 = new Adapter(new AfterEvolution("SmartPig"));
 pig1.speak();
 ```
+## Your animal needs Equipment
+Reasonably, your animal may need some equipment to equip theirselves. For example, horse may need to wear horseshoe to run faster. So you can define a `Equipment` class which inherits node to satisfy this need.
+A way of implementation maybe like this:
+```java
+//继承自node类的自定义装备类
+public class Equipment extends Node
+{
+	//描述这个装备的类型
+	private String equipType;
+
+	//穿戴这件装备的animal
+	private Animal  dresser;
+
+	public void setEquipType(String equipType)
+	{
+		this.equipType = equipType;
+	}
+
+	public String getEquipType()
+	{
+		return equipType;
+	}
+	Equipment(String type)
+	{
+		equipType = type;
+	}
+
+	public void setDresser(Animal dresser)
+	{
+		this.dresser = dresser;
+	}
+
+	public void printStatus()
+	{
+		System.out.println( equipType+"(ID:"+this.getID()+")" + "is dressed by "+ dresser.type+"(ID:"+dresser.getID()+")");
+	}
+}
+```
+
+And then you may test it like this:
+```java
+//test for equipment
+Equipment pig1Equip = new Equipment("pig's sty");
+pig1Equip.setDresser(pig1);
+pig1Equip.printStatus();
+```
 
 ## Gather a crowd
 A pig and a dog, they are best friend with each other. But they are different instances created by different classes. 
