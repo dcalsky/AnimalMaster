@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 public class TestManager  {
-    private Owner1 jjh = new Owner1("jjh");
+    private Owner jjh = new Owner("jjh");
 
     public TestManager(String name)
     {

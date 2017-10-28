@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Example;
+package example;
 
 import QueueReview.ReviewFlow;
 import QueueReview.ReviewFlowBuilder;

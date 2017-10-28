@@ -1,10 +1,10 @@
 package manager;
 import java.util.ArrayList;
 
-public class Owner1 extends Manager{
+public class Owner extends Manager{
     private ArrayList<ManagerWorkFlow> work_flow = new ArrayList<ManagerWorkFlow>();
 
-    public Owner1(String name)
+    public Owner(String name)
     {
         super(name);
     }
