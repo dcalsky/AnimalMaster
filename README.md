@@ -87,7 +87,65 @@ pig.do_action(fly_action);
 ```
 
 ### Ooops, all pigs want to fly
+Now that all pigs wanna fly, we should create them at first.
+```java
+Animal pig1 = new Animal("pig1");
+Animal pig2 = new Animal("pig2");
+```
+Then we invoke all_do_action static method to make all pigs do fly action. It also means, all instances which are 
+created by `Animal` class, all of them will do this action either.
+```java
+Animal.all_do_action(flyAction);
+```
 
+All animals will fly in the sky currently.
+
+### Gather a crowd
+A pig and a dog, they are best friend with each other. But they are different instance which created by different class. 
+PigA created by `Pig` class and DogB created by `Dog` class. However, there two classes both inherit `Living` class
+
+There are the simplest way to gather them to a group:
+
+Create a group which only collects instances created by `living` class, and limit it's capacity is **10**
+```java
+Group<Living> living_group = new Group<>(10);
+```
+Now, pigA and dogB are coming.
+```java
+Living pigA = Living.create("pigA");
+Living dogB = Living.create("dogB");
+```
+Then we add them into this group. pigA and dogB are in our group now.
+```java
+living_group.add(pigA);
+living_group.add(dogB);
+```
+
+This moment, both of them wanna fly suddenly. Just a little case. Invoking allDoAction method of group instance will 
+solve this issue.
+```java
+FlyAction flyAction = new FlyAction();
+living_group.allDoAction(flyAction);
+```
+
+### Record farm state
+It's a big problem that you wanna record your farm state before rebuilding your farm. 
+Because you think you will feel regretful once rebuilding the farm.
+
+Does't matter. FarmState class will solve this problem. Just record current state of your farm.
+
+```java
+// Record farm state
+FarmMemento farm_state = new FarmMemento(myFarm);
+
+
+// Rebuild your farm
+myFarm.rebuild(new SmallFarmLevel());
+
+
+// feel regretul? Restore farm state!
+myFarm.restore(farm_state.get_state());
+```
 
 # For contributors
 
