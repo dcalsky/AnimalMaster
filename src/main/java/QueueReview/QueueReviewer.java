@@ -5,11 +5,11 @@
  */
 package QueueReview;
 
-import Example.FastReviewBuilder;//
-import Example.SlowReviewBuilder;//
+import example.FastReviewBuilder;//
+import example.SlowReviewBuilder;//
 import QueueReview.ReviewFlowBuilder;
 import example.Animal;
-import manager.manager;
+import manager.Manager;
 
 /**
  *

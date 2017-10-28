@@ -16,7 +16,7 @@ public class Living extends Node {
     private static int count = 0;
     private static HashMap<String, Living> tags = new HashMap<String, Living>();
     private String tag;
-    private LivingState state = new DefaultLivingState(this);
+    public LivingState state = new DefaultLivingState(this);
 
     protected Living(String tag) {
         if (tags.containsKey(tag)) {
@@ -78,10 +78,6 @@ public class Living extends Node {
         return tag;
     }
 
-    public void set_state(LivingState s) {
-        this.state = s;
-    }
-    
     public void execute_command(ReviewFlow reviewFlow){
         System.out.println(reviewFlow.getCommand());
     }
