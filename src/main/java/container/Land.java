@@ -4,6 +4,5 @@ package container;
 public class Land extends SpaceContainer {
     public Land(){
         super(100);
-
     }
 }
