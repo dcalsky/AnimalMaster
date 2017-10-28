@@ -1,6 +1,9 @@
 package example;
 
+import action.Action;
 import farm.Farm;
+import java.util.ArrayList;
+import java.util.List;
 import node.Living;
 
 public class Animal extends Living {
@@ -8,7 +11,7 @@ public class Animal extends Living {
     private AnimalState state = new AnimalState(this);
     String type;
 
-    Animal(String n) {
+    public Animal(String n) {
         type = n;
     }
 
@@ -21,7 +24,7 @@ public class Animal extends Living {
         System.out.println("Eat eat!");
     }
 
-    public static void main(String args[]) {
+/*    public static void main(String args[]) {
         Farm myFarm = Farm.getInstance();
 
         Animal pig = new Animal("pig1");
@@ -29,5 +32,5 @@ public class Animal extends Living {
         pig.eat();
         FlyAction flyAction = new FlyAction();
         pig.do_action(flyAction);
-    }
+    }*/
 }
