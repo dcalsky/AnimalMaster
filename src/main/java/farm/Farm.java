@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Singleton and Strategy Methoed
+ * Singleton, Strategy Memento Methods
  */
 public class Farm {
     private static Farm farmInstance = null;
     private static List<Node> objs = new ArrayList<>();
 
-    private FarmLevel level;
+    private static FarmLevel level;
 
     public static Farm getInstance() {
         try {
@@ -36,30 +36,43 @@ public class Farm {
     }
 
     private Farm() {
-        this.level = new BaseFarmLevel();
+        level = new BaseFarmLevel();
     }
 
     public void rebuild(FarmLevel new_level) {
-        this.level = new_level;
+        level = new_level;
     }
 
     public void expand() {
-        this.level.expand();
+        level.expand();
     }
 
     public void shrink() {
-        this.level.shrink();
+        level.shrink();
+    }
+
+    public FarmLevel get_level() {
+        return level;
+    }
+
+    public List<Node> get_objs() {
+        return objs;
+    }
+
+    public void restore(FarmMemento memento) {
+        level = memento.get_level();
+        objs = memento.get_objs();
     }
 
     public void add(Node node) {
-        if (this.level.get_capacity() < Farm.objs.size()) {
+        if (level.get_capacity() > Farm.objs.size()) {
             Farm.objs.add(node);
         } else {
             throw new Error("Farm capacity reaches upper limitation!");
         }
     }
 
-    public static int getNumber() {
+    public int getNumber() {
         return Farm.objs.size();
     }
 }
