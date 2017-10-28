@@ -1,5 +1,6 @@
 package node;
 
+import QueueReview.ReviewFlow;
 import action.Action;
 import state.DefaultLivingState;
 import state.LivingState;
@@ -74,5 +75,9 @@ public class Living extends Node {
 
     public void set_state(LivingState s) {
         this.state = s;
+    }
+    
+    public void execute_command(ReviewFlow reviewFlow){
+        System.out.println(reviewFlow.getCommand());
     }
 }
