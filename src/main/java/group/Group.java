@@ -42,5 +42,6 @@ public class Group<T> extends ArrayList<T> {
         animals.allDoAction(flyAction);
         FarmIterator iterator = new FarmIterator(animals);
         iterator.allDoAction(flyAction);
+
     }
 }
