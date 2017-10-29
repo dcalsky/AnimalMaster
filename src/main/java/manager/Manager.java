@@ -40,7 +40,7 @@ abstract public class Manager extends Node {
         System.out.println("" + manager_name + " get up");
     }
 
-    abstract protected void manage_work(ArrayList<ManagerWorkFlow> s);
+    abstract protected void  manage_work(ArrayList<ManagerWorkFlow> s);
 
     abstract protected void custom_work();
 
