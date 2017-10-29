@@ -1,9 +1,7 @@
 package container;
 
-public interface LayerType {
-	public String getType();
-	public String getMaterial();
+public abstract class LayerType {
+	public abstract String getType();
+	public abstract Object getMaterial();
 	
-	
-
 }

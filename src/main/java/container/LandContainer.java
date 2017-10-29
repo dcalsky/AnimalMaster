@@ -20,7 +20,7 @@ public class LandContainer extends Land{
 	}
 
     //所有继承类需要重载destroy
-    public void add(Land land,int location) {
+    public void addland(Land land,int location) {
     	/*if(land.getLength()==Land.MATCH_PARENT)
 		{
 			land.setLength(this.length);
@@ -33,14 +33,14 @@ public class LandContainer extends Land{
 		regulate();
 
 	}
-	public void add(Land land) {
+	public void addland(Land land) {
     	if(layout instanceof FlowLayout)
 		{
 			layout.setArea(land, layout.getallAreas().size());
 		}
 
 	}
-	protected Land get(int location) {
+	protected Land getland(int location) {
 
     	return layout.getArea(location);
 
@@ -75,7 +75,7 @@ public class LandContainer extends Land{
 				}
 				else if(areas.get(i) instanceof SpecificLand)
 				{
-					result=result+((SpecificLand) areas.get(i)).getMaterial()+" length:"+areas.get(i).getLength()+" width:"+ areas.get(i).getWidth()+"    ";
+					result=result+((SpecificLand) areas.get(i)).getType().getMaterial()+" length:"+areas.get(i).getLength()+" width:"+ areas.get(i).getWidth()+"    ";
 				}
 			}
 		}
@@ -104,7 +104,7 @@ public class LandContainer extends Land{
 				}
 				else if(areas.get(i) instanceof SpecificLand)
 				{
-					result=result+((SpecificLand) areas.get(i)).getMaterial()+" length:"+areas.get(i).getLength()+" width:"+ areas.get(i).getWidth()+"    ";
+					result=result+((SpecificLand) areas.get(i)).getType().getMaterial()+" length:"+areas.get(i).getLength()+" width:"+ areas.get(i).getWidth()+"    ";
 				}
 			}
 		}
@@ -121,14 +121,14 @@ public class LandContainer extends Land{
 		farm.setWidth(1000);
 		farm.setLayout(new BorderLayout());
 		LandContainer center=new LandContainer();
-		center.add(new Meadowland(200,100));
-		center.add(new CementLand(Land.MATCH_PARENT,Land.MATCH_PARENT));
-		center.add(new Meadowland(Land.MATCH_PARENT,Land.MATCH_PARENT));
-		farm.add(center,BorderLayout.Center);
-		farm.add(new CementLand(),BorderLayout.East);
-		farm.add(new CementLand(),BorderLayout.West);
-		farm.add(new CementLand(),BorderLayout.North);
-		farm.add(new CementLand(),BorderLayout.South);
+		center.addland(new SpecificLand(200,100,CementType.getInstance()));
+		center.addland(new SpecificLand(Land.MATCH_PARENT,Land.MATCH_PARENT,CementType.getInstance()));
+		center.addland(new SpecificLand(Land.MATCH_PARENT,Land.MATCH_PARENT,MeadowType.getInstance()));
+		farm.addland(center,BorderLayout.Center);
+		farm.addland(new SpecificLand(CementType.getInstance()),BorderLayout.East);
+		farm.addland(new SpecificLand(CementType.getInstance()),BorderLayout.West);
+		farm.addland(new SpecificLand(CementType.getInstance()),BorderLayout.North);
+		farm.addland(new SpecificLand(CementType.getInstance()),BorderLayout.South);
 		System.out.println(farm);
 
 	}
