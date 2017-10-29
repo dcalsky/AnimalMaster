@@ -1,12 +1,14 @@
 package manager;
 
-import action.Action;
 
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import manager.Worker;
 
 public class Delegate {
-    private List<Action> actionList = new ArrayList<>();
+    private ArrayList<ManagerWorkFlow> actionList = new ArrayList<>();
     //priorit 0~9 0最大
     private int priority;
     private String message;
@@ -28,11 +30,18 @@ public class Delegate {
         this.priority = priority;
     }
 
-    public void push(Action... actions){
-        for(Action action : actions){
+    public void push(ManagerWorkFlow... actions){
+        for(ManagerWorkFlow action : actions){
             actionList.add(action);
         }
     }
+
+
+    public ArrayList<ManagerWorkFlow> getActionList()
+    {
+        return actionList;
+    }
+
 
     public String getMessage() {
         return message;
