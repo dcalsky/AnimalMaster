@@ -1,23 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package QueueReview;
 
 import example.FastReviewBuilder;//
 import example.SlowReviewBuilder;//
 import QueueReview.ReviewFlowBuilder;
 import example.Animal;
+import example.FastReviewBuilder;
 import manager.Manager;
 
-/**
- *
- * @author 18359
- */
 //队列评审人员
 public class QueueReviewer {
-    ////////////////////////////////////////////////////////////////////////////
     //builder design pattern
      private ReviewFlowBuilder reviewFlowBuilder;
      public ReviewFlow getReviewFlowMethod() { return reviewFlowBuilder.getReviewMethod(); }

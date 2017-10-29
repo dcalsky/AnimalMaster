@@ -40,6 +40,12 @@ public class Animal extends Living {
         // all animals do action => fly fly
         Animal.all_do_action(flyAction);
 
+        //test for equipment
+        Equipment pig1Equip = new Equipment("pig's sty");
+        pig1Equip.setDresser(pig1);
+        pig1Equip.printStatus();
+
+
         //进化
         pig1 = new Adapter(new AfterEvolution("SmartPig"));
         pig1.speak();
