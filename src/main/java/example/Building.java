@@ -1,11 +1,12 @@
-package container;
+package example;
 
+import container.SpaceContainer;
 import node.Node;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Building extends SpaceContainer{
+public class Building extends SpaceContainer {
     private List<Class> acceptableClasses = new ArrayList<>();
 
     public Building(){
@@ -35,5 +36,5 @@ public class Building extends SpaceContainer{
         acceptableClasses.remove(clz);
     }
 
-    
+
 }

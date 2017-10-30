@@ -1,12 +1,12 @@
-package container;
+package example;
+
+import container.*;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
-public class LandContainer extends Land{
+public class LandContainer extends Land {
 	
 	private static List<LandContainer> objs = new ArrayList<>();
 	private LayerLayout<Land> layout;
