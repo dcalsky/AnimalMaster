@@ -2,6 +2,11 @@ AnimalMaster
 =======
 Custom Framework project for design pattern course.
 
+# Get started
+1. Open java IDE
+2. Access `example` package
+3. Run main static function to start sample program
+
 # Usage
 ## Start your farm life
 In your main function, define a farm object to manage your farm. 
