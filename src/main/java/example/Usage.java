@@ -1,5 +1,7 @@
 package example;
 
+import QueueReview.QueueReviewer;
+import QueueReview.ReviewFlow;
 import container.Building;
 import farm.Farm;
 import farm.FarmMemento;
@@ -91,7 +93,31 @@ public class Usage {
         FarmIterator iterator = new FarmIterator(animals);
         iterator.allDoAction(flyAction);
 
-
+	//Queue Review
+        QueueReviewer reviewer = new QueueReviewer();
+        ReviewFlow flow = new ReviewFlow();
+        Animal pigQueue = new Animal("pig222");
+        FastReviewBuilder fastReviewBuilder = new FastReviewBuilder();
+        reviewer.setReviewFlowBuilder(fastReviewBuilder);
+        reviewer.constructReviewFlow(flow);
+        flow = reviewer.getReviewFlowMethod();
+        System.out.println("The Command is: "+flow.getCommand());
+        pigQueue.execute_command(flow);
+        SlowReviewBuilder slowReviewBuilder = new SlowReviewBuilder();
+        reviewer.setReviewFlowBuilder(slowReviewBuilder);
+        reviewer.constructReviewFlow(flow);
+        flow = reviewer.getReviewFlowMethod();
+        System.out.println("The Command is: "+flow.getCommand());
+        pigQueue.execute_command(flow);
+        
+        flow.changeAllEndAction("fly");
+        pigQueue.execute_command(flow);
+        
+        flow.changeAllMoveAction("jump");
+        pigQueue.execute_command(flow);
+        
+        flow.changeAllReadyAction("haha");
+        pigQueue.execute_command(flow);
     }
 
 }

@@ -17,12 +17,7 @@ public abstract class ReviewFlowBuilder extends Node implements Observer {
     public abstract void buildMoveAction();
     public abstract void buildEndAction();
     
-    public void setSubject(ReviewFlow flow){
-        flow.attach(this);
-    }
-    
     public void updateReadyAction(String actionName){
-        System.out.println(actionName);
         reviewMethod.setReadyActionCommand(actionName);
     }
     public void updateMoveAction(String actionName){

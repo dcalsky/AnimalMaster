@@ -33,7 +33,7 @@ public class ReviewFlow extends Node{
     }
     
     public void changeAllMoveAction(String actionName){
-        setReadyActionCommand(actionName);
+        setMoveActionCommand(actionName);
         notifyObserverMove(actionName);
     }
     
