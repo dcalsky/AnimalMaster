@@ -37,7 +37,7 @@ public class Living extends Node {
         Living.count += 1;
     }
 
-    protected static void all_do_action(Action action) {
+    public static void all_do_action(Action action) {
         tags.forEach((tag, living) -> {
             living.do_action(action);
         });

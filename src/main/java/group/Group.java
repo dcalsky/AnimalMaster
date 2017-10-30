@@ -29,19 +29,4 @@ public class Group<T> extends ArrayList<T> {
     public void allDoAction(Action action){
         iteratorT.allDoAction(action);
     }
-
-
-    public static void main(String[] args){
-        Group<Animal> animals = new Group<>(10);
-        Farm farm = Farm.getInstance();
-        Animal pig = new Animal("pig1");
-        animals.add(pig);
-        Animal sheep = new Animal("sheep1");
-        animals.add(sheep);
-        FlyAction flyAction = new FlyAction();
-        animals.allDoAction(flyAction);
-        FarmIterator iterator = new FarmIterator(animals);
-        iterator.allDoAction(flyAction);
-
-    }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class TestManager {
-    private Owner jjh = new Owner("jjh");
+    public Owner jjh = new Owner("jjh");
 
     public TestManager(String name) {
 
@@ -21,18 +21,5 @@ public class TestManager {
             }
         };
         jjh.manage_work(s);
-    }
-
-    public static void main(String[] args) {
-        TestManager test_manager = new TestManager("jjh");
-        test_manager.jjh.work_flow();
-
-
-        // jjh get a knife
-        test_manager.jjh.mount_equipment(new Knife());
-
-        // initialize a pig instance
-        Animal pig = new Animal("pigA");
-        test_manager.jjh.use_equipment_to(pig);
     }
 }

@@ -9,7 +9,7 @@ public class WorkManage {
     private WorkFactory wf = WorkFactory.get_instance();
     private Delegate delegate = new Delegate("schedule zyh's work");
 
-    private WorkManage()
+    public WorkManage()
     {
         ManagerWorkFlow feed_fish = wf.get_work("feed_dog", zyh);
         ManagerWorkFlow feed_pig = wf.get_work("feed_pig", zyh);
@@ -27,10 +27,5 @@ public class WorkManage {
         jjh.add_worker(zyh);
         jjh.arrange_worker(zyh.getID(),delegate);
         zyh.custom_work();
-    }
-    public static void main(String[] args)
-    {
-       WorkManage test_work_manage = new WorkManage();
-
     }
 }
