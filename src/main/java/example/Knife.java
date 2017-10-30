@@ -1,9 +1,9 @@
 package example;
 
-import node.Equipment;
+import node.Tool;
 import node.Node;
 
-public class Knife extends Equipment {
+public class Knife extends Tool {
     @Override
     public void do_action(Node node) {
         if (node instanceof Animal) {

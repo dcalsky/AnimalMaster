@@ -257,6 +257,58 @@ myFarm.rebuild(new SmallFarmLevel());
 myFarm.restore(farm_state.get_state());
 ```
 
+## Manger's round
+Create your manager class and do not let it inherit `Manager` class but set a private member variable of `Owner` class.
+
+And define a set of work flow which belong to this manager. 
+```java
+public class TestManager {
+    private Owner jjh = new Owner("jjh");
+
+    public TestManager(String name) {
+
+        WorkFactory wf = WorkFactory.get_instance();
+        ManagerWorkFlow feed_fish = wf.get_work("feed_dog", jjh);
+        ManagerWorkFlow feed_pig = wf.get_work("feed_pig", jjh);
+        ArrayList<ManagerWorkFlow> s = new ArrayList<ManagerWorkFlow>() {
+            {
+                add(feed_fish);
+                add(feed_pig);
+            }
+        };
+        jjh.manage_work(s);
+    }
+}
+```
+This manager `jjh` wants to kill a pig, but he can't kill this pig by his hands, he must have some tools.
+
+`Tool` class is born for this situation. Define a `Knife` custom class inherited `Tool` abstract class. And implement the `do_action`
+ method. In this method, you can get the actual node which is this tool used for. You can judge the type of it and handle it.
+```java
+public class Knife extends Tool {
+    @Override
+    public void do_action(Node node) {
+        if (node instanceof Animal) {
+            ((Animal) node).state.dead();
+            System.out.println(((Animal) node).type + " has been killed!");
+        } else {
+            System.out.println("Knife can only use for animals!");
+        }
+    }
+}
+```
+
+After defining the custom tool class, our manager should wear it now.
+```java
+// jjh get a knife
+test_manager.jjh.mount_equipment(new Knife());
+
+// initialize a pig instance
+Animal pig = new Animal("pigA");
+test_manager.jjh.use_equipment_to(pig);
+```
+At the moment, pigA is killed by jjh.
+
 # For contributors
 
 ## Suggested Branch name

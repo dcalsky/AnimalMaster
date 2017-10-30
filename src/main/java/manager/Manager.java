@@ -1,6 +1,6 @@
 package manager;
 
-import node.Equipment;
+import node.Tool;
 import node.Node;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 //Template and command design pattern
 abstract public class Manager extends Node {
     private String manager_name = "default name";
-    private Equipment equipment; // Command carrier
+    private Tool tool; // Command carrier
 
     public Manager(String name) {
         super();
@@ -21,15 +21,15 @@ abstract public class Manager extends Node {
         this.sleep();
     }
 
-    public void mount_equipment(Equipment e) {
-        this.equipment = e;
+    public void mount_equipment(Tool e) {
+        this.tool = e;
     }
 
     public void unmount_equipment() {
-        this.equipment = null;
+        this.tool = null;
     }
     public void use_equipment_to(Node node) {
-        equipment.do_action(node);
+        tool.do_action(node);
     }
 
     public String get_name() {
